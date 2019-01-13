@@ -1,5 +1,5 @@
 // https://qiita.com/tanakh/items/0ba42c7ca36cd29d0ac8
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -21,6 +21,7 @@ macro_rules! input {
     };
 }
 
+#[doc(hidden)]
 #[macro_export]
 macro_rules! input_inner {
     ($next:expr) => {};
@@ -32,6 +33,7 @@ macro_rules! input_inner {
     };
 }
 
+#[doc(hidden)]
 #[macro_export]
 macro_rules! read_value {
     ($next:expr, ( $($t:tt),* )) => {
