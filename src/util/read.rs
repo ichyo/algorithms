@@ -21,6 +21,7 @@ macro_rules! input {
     };
 }
 
+#[macro_export]
 macro_rules! input_inner {
     ($next:expr) => {};
     ($next:expr, ) => {};
@@ -31,6 +32,7 @@ macro_rules! input_inner {
     };
 }
 
+#[macro_export]
 macro_rules! read_value {
     ($next:expr, ( $($t:tt),* )) => {
         ( $(read_value!($next, $t)),* )
