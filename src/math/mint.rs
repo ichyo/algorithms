@@ -45,7 +45,7 @@ impl<M: Module> Mint<M> {
     }
     fn new(val: u32) -> Mint<M> {
         Mint {
-            val,
+            val: val,
             m: PhantomData,
         }
     }
