@@ -5,7 +5,7 @@
 /// # Examples
 ///
 /// ```rust
-/// # use comp_library::math::prime::is_prime;
+/// # use algo::math::is_prime;
 /// assert_eq!(is_prime(1), false);
 /// assert_eq!(is_prime(2), true);
 /// assert_eq!(is_prime(3), true);
@@ -130,11 +130,13 @@ fn mod_mul_(a: u64, b: u64, m: u64) -> u64 {
 
 fn mod_mul(a: u64, b: u64, m: u64) -> u64 {
     match a.checked_mul(b) {
-        Some(r) => if r >= m {
-            r % m
-        } else {
-            r
-        },
+        Some(r) => {
+            if r >= m {
+                r % m
+            } else {
+                r
+            }
+        }
         None => mod_mul_(a, b, m),
     }
 }
