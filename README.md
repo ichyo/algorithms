@@ -13,6 +13,5 @@ Currently, it supports a few basic data structures and functions.
 * Primality test (Miller-Rabin)
 * Next/Prev Permutation
 
-I suggest combining this library into single source file and pasting into the buttom of your submission file,
-If you want to use it in programming contests.
+I suggest combining this library into single source file and pasting into the buttom of your submission file when you use it in programming contests.
 You can try [rust-bundler](https://github.com/ichyo/rust-bundler) or other alternatives.
