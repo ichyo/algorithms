@@ -1,14 +1,14 @@
-use super::mint::{Mint, MOD}; // TODO: remove dependency on MOD
+use super::mint::{Mint, Module};
 
-pub struct Comb {
-    fact: Vec<Mint>,
-    factinv: Vec<Mint>,
+pub struct Comb<M: Module> {
+    fact: Vec<Mint<M>>,
+    factinv: Vec<Mint<M>>,
 }
 
-impl Comb {
-    pub fn new(n: usize) -> Comb {
-        let mut fact: Vec<Mint> = vec![0.into(); n + 1];
-        let mut factinv: Vec<Mint> = vec![0.into(); n + 1];
+impl<M: Module> Comb<M> {
+    pub fn new(n: usize) -> Comb<M> {
+        let mut fact: Vec<Mint<M>> = vec![0.into(); n + 1];
+        let mut factinv: Vec<Mint<M>> = vec![0.into(); n + 1];
         fact[0] = 1.into();
         for i in 0..n {
             fact[i + 1] = fact[i] * (i + 1);
@@ -23,10 +23,10 @@ impl Comb {
         }
     }
 
-    pub fn fact(&self, n: u64) -> Mint {
+    pub fn fact(&self, n: u64) -> Mint<M> {
         if let Some(x) = self.fact.get(n as usize) {
             *x
-        } else if n >= MOD as u64 {
+        } else if n >= M::module() as u64 {
             Mint::from(0)
         } else {
             let mut res = 1.into();
@@ -37,7 +37,7 @@ impl Comb {
         }
     }
 
-    pub fn factinv(&self, n: u64) -> Mint {
+    pub fn factinv(&self, n: u64) -> Mint<M> {
         if let Some(x) = self.factinv.get(n as usize) {
             *x
         } else {
@@ -45,7 +45,7 @@ impl Comb {
         }
     }
 
-    pub fn perm(&self, n: u64, r: u64) -> Mint {
+    pub fn perm(&self, n: u64, r: u64) -> Mint<M> {
         if n >= r {
             self.fact(n) * self.factinv((n - r) as u64)
         } else {
@@ -53,8 +53,8 @@ impl Comb {
         }
     }
 
-    pub fn comb(&self, n: u64, r: u64) -> Mint {
-        let m = MOD as u64;
+    pub fn comb(&self, n: u64, r: u64) -> Mint<M> {
+        let m = M::module() as u64;
         if n >= m {
             self.comb(n % m, r % m) * self.comb(n / m, r / m) // Lucas' theorem
         } else if n >= r {
@@ -64,7 +64,7 @@ impl Comb {
         }
     }
 
-    pub fn multi_comb(&self, n: u64, r: u64) -> Mint {
+    pub fn multi_comb(&self, n: u64, r: u64) -> Mint<M> {
         if r == 0 {
             Mint::from(1)
         } else {
@@ -79,7 +79,14 @@ mod tests {
 
     #[test]
     fn test_simple() {
-        let c = Comb::new(100);
+        #[derive(Clone, Copy, Debug)]
+        struct Mod;
+        impl Module for Mod {
+            fn module() -> u32 {
+                1000000007
+            }
+        }
+        let c = Comb::<Mod>::new(100);
         assert_eq!(Mint::from(336), c.perm(8, 3));
         assert_eq!(Mint::from(56), c.comb(8, 3));
         assert_eq!(Mint::from(10), c.multi_comb(3, 3));
@@ -87,7 +94,14 @@ mod tests {
 
     #[test]
     fn test_fact() {
-        let c = Comb::new(100);
+        #[derive(Clone, Copy, Debug)]
+        struct Mod;
+        impl Module for Mod {
+            fn module() -> u32 {
+                1000000007
+            }
+        }
+        let c = Comb::<Mod>::new(100);
         let p = 8721234;
         let mut f = Mint::from(1);
         for i in 1..(p + 1) {
