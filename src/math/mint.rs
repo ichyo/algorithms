@@ -1,4 +1,6 @@
+use std::fmt;
 use std::marker::PhantomData;
+use std::mem;
 use std::ops;
 
 pub trait Module: Copy + Clone {
@@ -103,9 +105,9 @@ impl<M: Module> Mint<M> {
         while b != 0 {
             let t = a / b;
             a -= t * b;
-            std::mem::swap(&mut a, &mut b);
+            mem::swap(&mut a, &mut b);
             u -= t * v;
-            std::mem::swap(&mut u, &mut v);
+            mem::swap(&mut u, &mut v);
         }
         Mint::new(if u < 0 { u + self.module() as i32 } else { u } as u32)
     }
@@ -117,8 +119,8 @@ impl<M: Module> PartialEq for Mint<M> {
     }
 }
 
-impl<M: Module> std::fmt::Display for Mint<M> {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl<M: Module> fmt::Display for Mint<M> {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         self.val.fmt(f)
     }
 }
@@ -154,25 +156,25 @@ macro_rules! impl_unsigned_mint {
 impl_signed_mint! { i8 i16 i32 i64 isize }
 impl_unsigned_mint! { u8 u16 u32 u64 usize }
 
-impl<T: Into<Mint<M>>, M: Module> std::ops::AddAssign<T> for Mint<M> {
+impl<T: Into<Mint<M>>, M: Module> ops::AddAssign<T> for Mint<M> {
     fn add_assign(&mut self, other: T) {
         *self = *self + other.into();
     }
 }
 
-impl<T: Into<Mint<M>>, M: Module> std::ops::SubAssign<T> for Mint<M> {
+impl<T: Into<Mint<M>>, M: Module> ops::SubAssign<T> for Mint<M> {
     fn sub_assign(&mut self, other: T) {
         *self = *self - other.into();
     }
 }
 
-impl<T: Into<Mint<M>>, M: Module> std::ops::MulAssign<T> for Mint<M> {
+impl<T: Into<Mint<M>>, M: Module> ops::MulAssign<T> for Mint<M> {
     fn mul_assign(&mut self, other: T) {
         *self = *self * other.into();
     }
 }
 
-impl<T: Into<Mint<M>>, M: Module> std::ops::DivAssign<T> for Mint<M> {
+impl<T: Into<Mint<M>>, M: Module> ops::DivAssign<T> for Mint<M> {
     fn div_assign(&mut self, other: T) {
         *self = *self / other.into();
     }
