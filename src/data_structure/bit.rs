@@ -22,15 +22,54 @@ pub struct BITRange {
 }
 
 impl BIT {
-    pub fn new(n: usize) -> BIT {
-        BIT { tree: vec![0; n] }
+    /// Constructs a new BIT of length `len`.
+    /// All values are initialized zero.
+    ///
+    /// # Examples
+    /// ```
+    /// # use algo::data_structure::BIT;
+    /// # #[warn(unused_mut)]
+    /// let mut bit = BIT::new(100);
+    /// ```
+    pub fn new(len: usize) -> BIT {
+        BIT { tree: vec![0; len] }
     }
 
-    /// v[at] += by
-    pub fn add(&mut self, at: usize, by: i64) {
-        let mut idx = at;
+    /// Returns the number of elements in the BIT.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// # use algo::data_structure::BIT;
+    /// let mut bit = BIT::new(100);
+    /// assert_eq!(bit.len(), 100);
+    /// ```
+    pub fn len(&self) -> usize {
+        self.tree.len()
+    }
+
+    /// Add a value `value` to a element of index `index`.
+    /// v[index] += value
+    ///
+    /// # Panics
+    ///
+    /// Panics if `index > len`
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// # use algo::data_structure::BIT;
+    /// let mut bit = BIT::new(10);
+    /// bit.add(5, 100);
+    /// assert_eq!(bit.get(3, 6), 100);
+    /// bit.add(5, 10);
+    /// assert_eq!(bit.get(3, 6), 110);
+    /// ```
+    pub fn add(&mut self, index: usize, value: i64) {
+        assert!(index < self.tree.len());
+        let mut idx = index;
         while idx < self.tree.len() {
-            self.tree[idx] += by;
+            self.tree[idx] += value;
             idx |= idx + 1;
         }
     }
@@ -47,6 +86,7 @@ impl BIT {
 
     /// v[0] + ... + v[last]
     fn cum(&self, last: usize) -> i64 {
+        assert!(last < self.tree.len());
         let mut res = 0;
         let mut idx = last as i64;
         while idx >= 0 {
@@ -67,6 +107,9 @@ impl BITRange {
 
     /// v[begin], v[begin+1], ..., v[end-1] += by
     pub fn add(&mut self, begin: usize, end: usize, by: i64) {
+        if begin >= end {
+            return;
+        }
         let a = begin as i64;
         let b = end as i64;
         self.bit0.add(begin, -by * a);
@@ -87,13 +130,44 @@ impl BITRange {
     fn cum(&self, end: usize) -> i64 {
         let a = self.bit0.get(0, end);
         let b = self.bit1.get(0, end);
-        return a + b * end as i64;
+        a + b * end as i64
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    #[should_panic]
+    fn test_out_of_bound_add() {
+        let mut bit = BIT::new(10);
+        bit.add(100, 1);
+    }
+
+    #[test]
+    #[should_panic]
+    fn test_out_of_bound_range_add() {
+        let mut bit = BITRange::new(10);
+        bit.add(5, 100, 1);
+    }
+
+    #[test]
+    #[should_panic]
+    fn test_out_of_bound_get() {
+        let bit = BIT::new(10);
+        bit.get(0, 1000);
+    }
+
+    #[test]
+    fn test_empty_range() {
+        let mut bit = BITRange::new(10);
+        bit.add(9, 0, 100);
+        bit.add(7, 3, 100);
+        assert_eq!(0, bit.get(0, 9));
+        assert_eq!(0, bit.get(0, 5));
+        assert_eq!(0, bit.get(2, 5));
+    }
 
     #[test]
     fn test_simple() {
