@@ -21,10 +21,12 @@
 /// ```
 pub trait Permutation {
     /// It rearranges the elements into the next lexicographically greater permutation.
+    ///
     /// Returns `false` without modifying any state only if current is the last permutation.
     fn next_permutation(&mut self) -> bool;
 
     /// It rearranges the elements into the previous lexicographically greater permutation.
+    ///
     /// Returns `false` without modifying any state only if current is the first permutation.
     fn prev_permutation(&mut self) -> bool;
 }
