@@ -1,6 +1,6 @@
 //! data structures for efficient operations
 //!
-//! Now, this module contains these data structures
+//! This module contains these data structures
 //! * [`BIT`](struct.BIT.html) - Binary Index Tree (Fenwick Tree)
 //! * [`BITRange`](struct.BITRange.html) - Binary Index Tree (Fenwick Tree) + range add
 //! * [`UnionFind`](struct.UnionFind.html) - Disjoint-set (Union-find) data structure
