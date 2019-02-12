@@ -84,8 +84,18 @@ pub type Mint998 = Mint<Mod998>;
 /// [`Mint107`](type.Mint107.html),
 /// [`Mint109`](type.Mint109.html),
 /// [`Mint998`](type.Mint998.html)
+///
+/// # Examples
+/// ```
+/// use algonium::math::{Mint107, MOD_107};
+/// let x: Mint107 = 1234567.into();
+/// let y: Mint107 = 2345678.into();
+/// let z = x * y;
+/// assert_eq!(z.val as u64, 1234567u64 * 2345678u64 % MOD_107 as u64);
+/// ```
 #[derive(Debug, Copy, Clone, Eq)]
 pub struct Mint<M: Module> {
+    /// internal value. this is always less than `self.module()`.
     pub val: u32,
     m: PhantomData<M>,
 }
@@ -95,6 +105,7 @@ impl<M: Module> Mint<M> {
         M::module()
     }
     fn new(val: u32) -> Mint<M> {
+        assert!(val < M::module());
         Mint {
             val: val,
             m: PhantomData,
