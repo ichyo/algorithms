@@ -25,22 +25,22 @@
 /// assert!(uf.same(0, 2));
 /// assert_eq!(uf.size(0), 3);
 /// ```
+///
+/// # Panics
+/// panics if `x` or `y` is not less than number of elements given in the initialization method.
+///
 pub struct UnionFind {
     data: Vec<i32>,
 }
 
 impl UnionFind {
-    /// Creates a object with n disjoint sets
+    /// Creates a object with n disjoint sets. `i`-th set is `{ i }`.
     pub fn new(n: usize) -> UnionFind {
         UnionFind { data: vec![-1; n] }
     }
 
     /// Unite a set including `x` and another set including y into one.
     /// Returns `true` only if they were in different set.
-    ///
-    /// # Panics
-    /// panics if `x >= len` or `y >= len`
-    ///
     pub fn unite(&mut self, x: usize, y: usize) -> bool {
         let x = self.root(x);
         let y = self.root(y);
@@ -57,23 +57,17 @@ impl UnionFind {
     }
 
     /// Returns `true` only if `x` and `y` are in a same set.
-    ///
-    /// # Panics
-    /// panics if `x >= len` or `y >= len`
-    ///
     pub fn same(&mut self, x: usize, y: usize) -> bool {
         self.root(x) == self.root(y)
     }
 
-    /// Returns the number of elements of the set including `x`.
-    ///
-    /// # Panics
-    /// panics if `x >= len`
+    /// Returns the number of elements of a set including `x`.
     pub fn size(&mut self, x: usize) -> u32 {
         let r = self.root(x);
         (-self.data[r]) as u32
     }
 
+    /// internal method to return representative element of a set including `x`.
     pub fn root(&mut self, x: usize) -> usize {
         if self.data[x] < 0 {
             x
