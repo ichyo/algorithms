@@ -5,7 +5,7 @@
 /// # Examples
 ///
 /// ```rust
-/// # use algo::math::is_prime;
+/// # use algonium::math::is_prime;
 /// assert_eq!(is_prime(1), false);
 /// assert_eq!(is_prime(2), true);
 /// assert_eq!(is_prime(3), true);
