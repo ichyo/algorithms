@@ -35,6 +35,10 @@ impl Module for Mod998 {
     }
 }
 
+pub type Mint107 = Mint<Mod107>;
+pub type Mint109 = Mint<Mod109>;
+pub type Mint998 = Mint<Mod998>;
+
 #[derive(Debug, Copy, Clone, Eq)]
 pub struct Mint<M: Module> {
     pub val: u32,

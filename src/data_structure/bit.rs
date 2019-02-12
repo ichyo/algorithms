@@ -10,7 +10,7 @@ pub struct BIT {
     tree: Vec<i64>,
 }
 
-/// BIT (range-version) (0-indexed)
+/// Binary Indexed Tree (range-version) (0-indexed)
 ///
 /// This data structure two queries in O(log n)
 ///
