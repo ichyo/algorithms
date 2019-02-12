@@ -1,6 +1,6 @@
 // cf. http://hos.ac/slides/20140319_bit.pdf
 
-/// Binary Indexed Tree (Fenwick Tree) (0-indexed)
+/// Binary Indexed Tree (0-indexed)
 ///
 /// This data structure supports these two queries in O(log n)
 ///

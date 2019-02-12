@@ -1,8 +1,9 @@
 //! data structures for efficient operations
 //!
-//! Now, it contains these data structures
-//! * BIT: [`BIT`], [`BITRange`]
-//! * UnionFind: [`UnionFind`]
+//! Now, this module contains these data structures
+//! * [`BIT`](struct.BIT.html) - Binary Index Tree (Fenwick Tree)
+//! * [`BITRange`](struct.BITRange.html) - Binary Index Tree (Fenwick Tree) + range add
+//! * [`UnionFind`](struct.UnionFind.html) - Disjoint-set (Union-find) data structure
 //!
 mod bit;
 mod union_find;
