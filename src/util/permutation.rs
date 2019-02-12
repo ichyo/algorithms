@@ -1,7 +1,7 @@
 // ref: [https://www.nayuki.io/page/next-lexicographical-permutation-algorithm]
 
-/// Same method as `std::next_permutaion` in C++.
-/// it rearranges the elements into the next/prev lexicographically greater permutation.
+/// It contains same methods as `std::next_permutaion` in C++.
+/// these methods should rearrange the elements into the next/prev lexicographically greater permutation.
 ///
 /// This is implemented in [T] where T is Ord.
 ///
