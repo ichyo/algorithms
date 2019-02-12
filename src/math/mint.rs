@@ -3,12 +3,16 @@ use std::marker::PhantomData;
 use std::mem;
 use std::ops;
 
+/// Trait for `Mint`. `module()` should return prime number.
 pub trait Module: Copy + Clone {
     fn module() -> u32;
 }
 
+/// One of famous numbers in programming contest. `10^9 + 7`
 pub const MOD_107: u32 = 1_000_000_007;
+/// One of famous numbers in programming contest. `10^9 + 9`
 pub const MOD_109: u32 = 1_000_000_009;
+/// One of famous numbers in programming contest. `998_244_353`
 pub const MOD_998: u32 = 998_244_353;
 
 #[derive(Debug, Copy, Clone)]
@@ -35,10 +39,51 @@ impl Module for Mod998 {
     }
 }
 
+/// Wrapper class to compute mod `1_000_000_007` automatically.
+///
+/// # Examples
+/// ```
+/// use algonium::math::{Mint107, MOD_107};
+/// let x: Mint107 = 1234567.into();
+/// let y: Mint107 = 2345678.into();
+/// let z = x * y;
+/// # // TODO: implement convert to u64
+/// assert_eq!(z.val as u64, 1234567u64 * 2345678u64 % MOD_107 as u64);
+/// ```
+///
 pub type Mint107 = Mint<Mod107>;
+
+/// Wrapper class to compute mod `1_000_000_009` automatically.
+///
+/// # Examples
+/// ```
+/// use algonium::math::{Mint109, MOD_109};
+/// let x: Mint109 = 1234567.into();
+/// let y: Mint109 = 2345678.into();
+/// let z = x * y;
+/// assert_eq!(z.val as u64, 1234567u64 * 2345678u64 % MOD_109 as u64);
+/// ```
+///
 pub type Mint109 = Mint<Mod109>;
+
+/// Wrapper class to compute mod `998_244_353` automatically.
+///
+/// # Examples
+/// ```
+/// use algonium::math::{Mint998, MOD_998};
+/// let x: Mint998 = 1234567.into();
+/// let y: Mint998 = 2345678.into();
+/// let z = x * y;
+/// assert_eq!(z.val as u64, 1234567u64 * 2345678u64 % MOD_998 as u64);
+/// ```
+///
 pub type Mint998 = Mint<Mod998>;
 
+/// Wrapper class to compute modulo operation.
+/// See examples
+/// [`Mint107`](type.Mint107.html),
+/// [`Mint109`](type.Mint109.html),
+/// [`Mint998`](type.Mint998.html)
 #[derive(Debug, Copy, Clone, Eq)]
 pub struct Mint<M: Module> {
     pub val: u32,
@@ -101,6 +146,9 @@ impl<T: Into<Mint<M>>, M: Module> ops::Div<T> for Mint<M> {
 }
 
 impl<M: Module> Mint<M> {
+    /// Returns number `y` that satisfies `x * y == 1` where `x` is the original value.
+    ///
+    /// This assumes `module()` returns prime number.
     pub fn inv(self) -> Mint<M> {
         let mut a = self.val as i32;
         let mut b = self.module() as i32;
