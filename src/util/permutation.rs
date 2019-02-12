@@ -1,4 +1,4 @@
-// https://www.nayuki.io/page/next-lexicographical-permutation-algorithm
+//! ref: [https://www.nayuki.io/page/next-lexicographical-permutation-algorithm]
 
 pub trait Permutation {
     fn next_permutation(&mut self) -> bool;
