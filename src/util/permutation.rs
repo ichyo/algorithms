@@ -3,6 +3,8 @@
 /// Same method as `std::next_permutaion` in C++.
 /// it rearranges the elements into the next/prev lexicographically greater permutation.
 ///
+/// This is implemented in [T] where T is Ord.
+///
 /// # Examples
 /// ```
 /// use algonium::util::Permutation;
