@@ -1,4 +1,4 @@
-//! data structures such as BIT or Union-Find.
+//! data structures for efficient operations
 //!
 //! Now, it contains these data structures
 //! * BIT: [`BIT`], [`BITRange`]

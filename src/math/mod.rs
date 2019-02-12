@@ -1,3 +1,5 @@
+//! mathematic related functions and structs
+
 mod comb;
 mod mint;
 
