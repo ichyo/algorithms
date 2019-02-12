@@ -10,7 +10,6 @@ Currently, it supports a few basic data structures and functions.
 * Union-Find (Disjoint Set)
 * ModInt (automatically computes mod N with several operations)
 * Combinations
-* Primality test (Miller-Rabin)
 * Next/Prev Permutation
 
 I suggest combining this library into single source file and pasting into the buttom of your submission file when you use it in programming contests.
