@@ -15,6 +15,7 @@ pub const MOD_109: u32 = 1_000_000_009;
 /// One of famous numbers in programming contest. `998_244_353`
 pub const MOD_998: u32 = 998_244_353;
 
+/// struct to implement Module trait. it returns `MOD_107`.
 #[derive(Debug, Copy, Clone)]
 pub struct Mod107;
 impl Module for Mod107 {
@@ -23,6 +24,7 @@ impl Module for Mod107 {
     }
 }
 
+/// struct to implement Module trait. it returns `MOD_109`.
 #[derive(Debug, Copy, Clone)]
 pub struct Mod109;
 impl Module for Mod109 {
@@ -31,6 +33,7 @@ impl Module for Mod109 {
     }
 }
 
+/// struct to implement Module trait. it returns `MOD_998`.
 #[derive(Debug, Copy, Clone)]
 pub struct Mod998;
 impl Module for Mod998 {
