@@ -4,6 +4,7 @@
 //! You can check how `RMQ` is implmented in this module.
 // ref: https://github.com/asi1024/competitive-library/blob/master/cpp/include/structure/segment_tree.cpp
 // ref: rust-num
+use std::cmp;
 use std::marker::PhantomData;
 use std::{f32, f64};
 use std::{i16, i32, i64, i8, isize};
@@ -95,7 +96,7 @@ impl<T: Ord + Bounded + Copy> Monoid<T> for RMQOp<T> {
 
     #[inline]
     fn op(l: &T, r: &T) -> T {
-        *std::cmp::min(l, r)
+        *cmp::min(l, r)
     }
 }
 
@@ -195,5 +196,15 @@ mod tests {
         assert_eq!(0, rms.query(1, 8));
         assert_eq!(2, rms.query(6, 7));
         assert_eq!(0, rms.query(7, 8));
+        rms.update(7, 5);
+        assert_eq!(1, rms.query(0, 8));
+        assert_eq!(5, rms.query(1, 2));
+        assert_eq!(4, rms.query(1, 3));
+        assert_eq!(4, rms.query(1, 4));
+        assert_eq!(4, rms.query(1, 6));
+        assert_eq!(2, rms.query(1, 7));
+        assert_eq!(2, rms.query(1, 8));
+        assert_eq!(2, rms.query(6, 7));
+        assert_eq!(5, rms.query(7, 8));
     }
 }
