@@ -1,7 +1,7 @@
 //! util functions and trails to help typical implementation
 //!
 //! * [`Permutation`](trait.Permutation.html) - Add `next_permutation`, `prev_permutation` for slices.
-//! * [`XorShift`](struct.XorShift.html) - Provide very simple random function.
+//! * [`XorShift`](struct.XorShift.html) - Provide very simple random generator.
 //!
 mod permutation;
 mod random;

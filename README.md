@@ -12,6 +12,7 @@ Currently, it supports a few basic data structures and functions.
 * ModInt (automatically computes mod N with several operations)
 * Combinations
 * Next/Prev Permutation
+* Xorshift random generator
 
 I suggest combining this library into single source file and pasting into the buttom of your submission file when you use it in programming contests.
 You can try [rust-bundler](https://github.com/ichyo/rust-bundler) or other alternatives.
