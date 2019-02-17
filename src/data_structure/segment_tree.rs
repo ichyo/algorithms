@@ -30,22 +30,6 @@ impl<T: Ord + Clone> Monoid<T> for MinOp<T> {
     }
 }
 
-pub struct MaxOp<T: Ord> {
-    phantom: PhantomData<T>,
-}
-
-impl<T: Ord + Clone> Monoid<T> for MaxOp<T> {
-    #[inline]
-    fn op(l: &Option<T>, r: &Option<T>) -> Option<T> {
-        match (l.clone(), r.clone()) {
-            (Some(l), Some(r)) => Some(cmp::max(l, r)),
-            (Some(l), None) => Some(l),
-            (None, Some(r)) => Some(r),
-            (None, None) => None,
-        }
-    }
-}
-
 pub struct SegmentTree<M: Monoid<T>, T: Clone> {
     phantom: PhantomData<M>,
     data: Vec<Option<T>>,
