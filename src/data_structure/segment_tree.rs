@@ -21,10 +21,10 @@ pub struct MinOp<T: Ord> {
 impl<T: Ord + Clone> Monoid<T> for MinOp<T> {
     #[inline]
     fn op(l: &Option<T>, r: &Option<T>) -> Option<T> {
-        match (l, r) {
-            (Some(l), Some(r)) => Some(cmp::min(l, r).clone()),
-            (Some(l), None) => Some(l.clone()),
-            (None, Some(r)) => Some(r.clone()),
+        match (l.clone(), r.clone()) {
+            (Some(l), Some(r)) => Some(cmp::min(l, r)),
+            (Some(l), None) => Some(l),
+            (None, Some(r)) => Some(r),
             (None, None) => None,
         }
     }
@@ -37,10 +37,10 @@ pub struct MaxOp<T: Ord> {
 impl<T: Ord + Clone> Monoid<T> for MaxOp<T> {
     #[inline]
     fn op(l: &Option<T>, r: &Option<T>) -> Option<T> {
-        match (l, r) {
-            (Some(l), Some(r)) => Some(cmp::max(l, r).clone()),
-            (Some(l), None) => Some(l.clone()),
-            (None, Some(r)) => Some(r.clone()),
+        match (l.clone(), r.clone()) {
+            (Some(l), Some(r)) => Some(cmp::max(l, r)),
+            (Some(l), None) => Some(l),
+            (None, Some(r)) => Some(r),
             (None, None) => None,
         }
     }
