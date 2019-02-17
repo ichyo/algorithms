@@ -11,5 +11,5 @@ mod segment_tree;
 mod union_find;
 
 pub use self::bit::{BITRange, BIT};
-pub use self::segment_tree::{Monoid, RMQOp, SegmentTree, RMQ};
+pub use self::segment_tree::{MinOp, Monoid, SegmentTree, RMQ};
 pub use self::union_find::UnionFind;
