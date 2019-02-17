@@ -115,7 +115,7 @@ impl<M: Monoid<T>, T: Clone> SegmentTree<M, T> {
 }
 
 /// segment tree to get minimum value in a range
-pub type RMQ<T> = SegmentTree<MinOp<T>, T>;
+pub type RMQ<T> = SegmentTree<MinOp<T>, Option<T>>;
 
 #[cfg(test)]
 mod tests {
