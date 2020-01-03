@@ -5,6 +5,8 @@
 //!
 mod permutation;
 mod random;
+mod grid;
 
 pub use self::permutation::Permutation;
 pub use self::random::XorShift;
+pub use self::grid::adj4_iter;
