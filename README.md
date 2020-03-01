@@ -1,7 +1,5 @@
 # Algorithms
 
-[![Build Status](https://travis-ci.com/ichyo/rust-algorithms.svg?branch=master)](https://travis-ci.com/ichyo/rust-algorithms)
-
 This repository manages a collection of classic algorithms for programming contests (e.g. [codeforces](https://codeforces.com/) and [AtCoder](https://atcoder.jp/)).
 
 Minimum supported compiler version is 1.35.0. Use [cargo-atcoder](https://github.com/tanakh/cargo-atcoder) for AtCoder.
