@@ -9,16 +9,16 @@ Minimum supported compiler version is 1.35.0. Use [cargo-atcoder](https://github
 
 ### Data Structures
 
-* [BIT (Binary Indexed Tree)](./blob/master/src/data_structure/bit.rs)
-* Union-Find (Disjoint Set)
-* Segment Tree
+* [BIT (Binary Indexed Tree)](src/data_structure/bit.rs)
+* [Union-Find (Disjoint Set)](src/data_structure/union_find.rs)
+* [Segment Tree](src/data_structure/segment_tree.rs)
 
 ### Math
 
-* ModInt 
-* Combinations
+* [ModInt](src/math/mint.rs)
+* [Combinations](src/math/comb.rs)
 
 ### Others
 
-* Next/Prev Permutation
-* Xorshift random generator
+* [Next/Prev Permutation](src/util/permutation.rs)
+* [Xorshift random generator](src/util/random.rs)
