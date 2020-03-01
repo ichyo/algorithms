@@ -4,7 +4,7 @@ use super::mint::{Mint, Module};
 ///
 /// # Examples
 /// ```
-/// use algonium::math::{Comb, Mod107, Mint107};
+/// use algorithms::math::{Comb, Mod107, Mint107};
 /// let comb: Comb<Mod107> = Comb::new(100);
 /// assert_eq!(Mint107::from(24), comb.fact(4));
 /// assert_eq!(Mint107::from(1), comb.fact(4) * comb.factinv(4));

@@ -4,7 +4,7 @@
 /// # Examples
 ///
 /// ```
-/// use algonium::graph::BipartiteMatching;
+/// use algorithms::graph::BipartiteMatching;
 /// let mut bp = BipartiteMatching::new(3, 4);
 /// bp.add_edge(0, 1);
 /// bp.add_edge(0, 2);

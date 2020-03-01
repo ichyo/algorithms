@@ -12,7 +12,7 @@
 ///
 /// # Examples
 /// ```
-/// use algonium::data_structure::UnionFind;
+/// use algorithms::data_structure::UnionFind;
 ///
 /// let mut uf = UnionFind::new(4);
 /// assert!(!uf.same(0, 1));

@@ -7,7 +7,7 @@
 ///
 /// # Examples
 /// ```
-/// use algonium::util::Permutation;
+/// use algorithms::util::Permutation;
 ///
 /// let mut perm = [5, 0, 9, 2];
 /// assert!(perm.next_permutation());

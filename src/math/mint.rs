@@ -46,7 +46,7 @@ impl Module for Mod998 {
 ///
 /// # Examples
 /// ```
-/// use algonium::math::{Mint107, MOD_107};
+/// use algorithms::math::{Mint107, MOD_107};
 /// let x: Mint107 = 1234567.into();
 /// let y: Mint107 = 2345678.into();
 /// let z = x * y;
@@ -60,7 +60,7 @@ pub type Mint107 = Mint<Mod107>;
 ///
 /// # Examples
 /// ```
-/// use algonium::math::{Mint109, MOD_109};
+/// use algorithms::math::{Mint109, MOD_109};
 /// let x: Mint109 = 1234567.into();
 /// let y: Mint109 = 2345678.into();
 /// let z = x * y;
@@ -73,7 +73,7 @@ pub type Mint109 = Mint<Mod109>;
 ///
 /// # Examples
 /// ```
-/// use algonium::math::{Mint998, MOD_998};
+/// use algorithms::math::{Mint998, MOD_998};
 /// let x: Mint998 = 1234567.into();
 /// let y: Mint998 = 2345678.into();
 /// let z = x * y;
@@ -90,7 +90,7 @@ pub type Mint998 = Mint<Mod998>;
 ///
 /// # Examples
 /// ```
-/// use algonium::math::{Mint107, MOD_107};
+/// use algorithms::math::{Mint107, MOD_107};
 /// let x: Mint107 = 1234567.into();
 /// let y: Mint107 = 2345678.into();
 /// let z = x * y;

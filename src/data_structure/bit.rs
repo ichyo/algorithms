@@ -27,7 +27,7 @@ impl BIT {
     ///
     /// # Examples
     /// ```
-    /// use algonium::data_structure::BIT;
+    /// use algorithms::data_structure::BIT;
     /// # #[warn(unused_mut)]
     /// let mut bit = BIT::new(100);
     /// ```
@@ -40,7 +40,7 @@ impl BIT {
     /// # Examples
     ///
     /// ```
-    /// use algonium::data_structure::BIT;
+    /// use algorithms::data_structure::BIT;
     /// let mut bit = BIT::new(100);
     /// assert_eq!(bit.len(), 100);
     /// ```
@@ -58,7 +58,7 @@ impl BIT {
     /// # Examples
     ///
     /// ```
-    /// use algonium::data_structure::BIT;
+    /// use algorithms::data_structure::BIT;
     /// let mut bit = BIT::new(10);
     /// bit.add(5, 100);
     /// assert_eq!(bit.get(3, 6), 100);

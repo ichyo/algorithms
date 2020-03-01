@@ -4,7 +4,7 @@ use std::num::Wrapping;
 ///
 /// # Examples
 /// ```
-/// use algonium::util::XorShift;
+/// use algorithms::util::XorShift;
 /// let mut xorshift = XorShift::new();
 /// assert_eq!(3701687786, xorshift.next_u32());
 /// assert_eq!(458299110, xorshift.next_u32());
