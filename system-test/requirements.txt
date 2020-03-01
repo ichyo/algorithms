@@ -1,0 +1,1 @@
+online-judge-tools>=8.0,<9.0

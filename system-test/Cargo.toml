@@ -1,0 +1,11 @@
+[package]
+name = "system-test"
+version = "0.1.0"
+authors = ["ichyo <ichyo00@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+algorithms = { path = "../" }
+text-scanner = { git = "https://github.com/ichyo/rust-text-scanner.git" }
