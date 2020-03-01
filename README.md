@@ -1,11 +1,13 @@
-# rust-algorithms
+# Algorithms
 
 [![Build Status](https://travis-ci.com/ichyo/rust-algorithms.svg?branch=master)](https://travis-ci.com/ichyo/rust-algorithms)
 
-This is a collection of algorithms for programming contests such as codeforces and AtCoder.
-This can compile with version 1.15.1 so that you can use it with the old compiler in AtCoder.
+This repository manages a collection of classic algorithms for programming contests (e.g. [codeforces](https://codeforces.com/) and [AtCoder](https://atcoder.jp/)).
 
-Currently, it supports a few basic data structures and functions.
+Minimum supported compiler version is 1.35.0. Use [cargo-atcoder](https://github.com/tanakh/cargo-atcoder) for AtCoder.
+
+## List of algorithms
+
 * Binary Indexed Tree
 * Union-Find (Disjoint Set)
 * ModInt (automatically computes mod N with several operations)
