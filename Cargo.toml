@@ -1,9 +1,9 @@
 [package]
-name = "algonium"
+name = "algorithms"
 version = "0.1.0"
 authors = ["ichyo <ichyo00@gmail.com>"]
 edition = "2018"
-repository = "https://github.com/ichyo/rust-algorithms"
+repository = "https://github.com/ichyo/algorithms"
 readme = "README.md"
 license = "MIT"
 keywords = ["algorithm", "algorithms"]
