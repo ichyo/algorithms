@@ -5,10 +5,4 @@ authors = ["ichyo <ichyo00@gmail.com>"]
 edition = "2018"
 repository = "https://github.com/ichyo/algorithms"
 readme = "README.md"
-license = "MIT"
-keywords = ["algorithm", "algorithms"]
-category = ["algorithms"]
 description = "a collection of classic algorithms for programming contests"
-
-[badges]
-travis-ci = { repository = "ichyo/rust-algorithms" }
