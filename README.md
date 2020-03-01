@@ -1,5 +1,6 @@
 # Algorithms
 [![Build](https://github.com/ichyo/algorithms/workflows/Build/badge.svg)](https://github.com/ichyo/algorithms/actions?query=workflow%3ABuild)
+[![Verify](https://github.com/ichyo/algorithms/workflows/Verify/badge.svg)](https://github.com/ichyo/algorithms/actions?query=workflow%3AVerify)
 
 This repository manages a collection of classic algorithms for programming contests (e.g. [codeforces](https://codeforces.com/) and [AtCoder](https://atcoder.jp/)).
 
