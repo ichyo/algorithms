@@ -7,10 +7,18 @@ Minimum supported compiler version is 1.35.0. Use [cargo-atcoder](https://github
 
 ## List of algorithms
 
-* Binary Indexed Tree
+### Data Structures
+
+* [BIT (Binary Indexed Tree)](./blob/master/src/data_structure/bit.rs)
 * Union-Find (Disjoint Set)
-* ModInt (automatically computes mod N with several operations)
+* Segment Tree
+
+### Math
+
+* ModInt 
 * Combinations
+
+### Others
+
 * Next/Prev Permutation
 * Xorshift random generator
-* Segment tree (experimental)
