@@ -33,10 +33,7 @@ impl<M: Module> Comb<M> {
         for i in (0..n).rev() {
             factinv[i] = factinv[i + 1] * (i + 1);
         }
-        Comb {
-            fact: fact,
-            factinv: factinv,
-        }
+        Comb { fact, factinv }
     }
 
     /// `n! = 1 * 2 * ... * n`
@@ -51,7 +48,7 @@ impl<M: Module> Comb<M> {
             // Note that this is slow if `n` is large.
             // Precalculation is a possible solution but doesn't work for any module number.
             let mut res = 1.into();
-            for a in 1..(n + 1) {
+            for a in 1..=n {
                 res *= a;
             }
             res

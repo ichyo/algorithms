@@ -46,13 +46,7 @@ impl Iterator for Adj4 {
 }
 
 pub fn adj4_iter(y: usize, x: usize, h: usize, w: usize) -> Adj4 {
-    Adj4 {
-        y: y,
-        x: x,
-        h: h,
-        w: w,
-        r: 0,
-    }
+    Adj4 { y, x, h, w, r: 0 }
 }
 
 #[cfg(test)]

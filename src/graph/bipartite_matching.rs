@@ -24,8 +24,8 @@ pub struct BipartiteMatching {
 impl BipartiteMatching {
     pub fn new(left_num: usize, right_num: usize) -> Self {
         BipartiteMatching {
-            left_num: left_num,
-            right_num: right_num,
+            left_num,
+            right_num,
             graph: vec![Vec::new(); left_num],
         }
     }
@@ -49,18 +49,18 @@ impl BipartiteMatching {
             }
 
             for i in 0..self.left_num {
-                if matching[i] == usize::max_value() {
-                    if self.dfs(i, &mut visited, &mut matching, &mut inv) {
-                        updated = true;
-                    }
+                if matching[i] == usize::max_value()
+                    && self.dfs(i, &mut visited, &mut matching, &mut inv)
+                {
+                    updated = true;
                 }
             }
         }
 
         let mut result = ::std::collections::HashMap::new();
-        for i in 0..self.left_num {
-            if matching[i] != usize::max_value() {
-                result.insert(i, matching[i]);
+        for (i, m) in matching.into_iter().enumerate() {
+            if m != usize::max_value() {
+                result.insert(i, m);
             }
         }
         result

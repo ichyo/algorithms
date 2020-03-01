@@ -1,3 +1,4 @@
+#![allow(clippy::suspicious_arithmetic_impl)]
 use std::fmt;
 use std::marker::PhantomData;
 use std::mem;
@@ -110,7 +111,7 @@ impl<M: Module> Mint<M> {
     fn new(val: u32) -> Mint<M> {
         assert!(val < M::module());
         Mint {
-            val: val,
+            val,
             m: PhantomData,
         }
     }
@@ -169,10 +170,10 @@ impl<M: Module> Mint<M> {
         let mut u = 1 as i32;
         let mut v = 0 as i32;
         while b != 0 {
-            let t = a / b;
-            a -= t * b;
+            let quo = a / b;
+            a -= quo * b;
             mem::swap(&mut a, &mut b);
-            u -= t * v;
+            u -= quo * v;
             mem::swap(&mut u, &mut v);
         }
         Mint::new(if u < 0 { u + self.module() as i32 } else { u } as u32)

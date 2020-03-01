@@ -49,13 +49,13 @@ impl<M: Monoid<T>, T: Clone> SegmentTree<M, T> {
             data[size_p2 + i] = Some(x);
         }
         for i in (0..size_p2).rev() {
-            data[i] = M::op(&data[i * 2 + 0], &data[i * 2 + 1]);
+            data[i] = M::op(&data[i * 2], &data[i * 2 + 1]);
         }
         SegmentTree {
             phantom: PhantomData,
-            data: data,
-            size: size,
-            size_p2: size_p2,
+            data,
+            size,
+            size_p2,
         }
     }
 

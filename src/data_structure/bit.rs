@@ -21,6 +21,7 @@ pub struct BITRange {
     bit1: BIT,
 }
 
+#[allow(clippy::len_without_is_empty)] // because empty BIT doesn't make sense
 impl BIT {
     /// Constructs a new BIT of length `len`.
     /// All values are initialized zero.
