@@ -21,5 +21,6 @@ Minimum supported compiler version is 1.35.0. Use [cargo-atcoder](https://github
 
 ### Others
 
+* [Binary Search](src/util/binary_search.rs)
 * [Next/Prev Permutation](src/util/permutation.rs)
 * [Xorshift random generator](src/util/random.rs)
