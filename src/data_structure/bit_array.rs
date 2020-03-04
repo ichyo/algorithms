@@ -17,6 +17,10 @@ impl BitArray {
         self.nbits
     }
 
+    pub fn is_empty(&self) -> bool {
+        self.nbits == 0
+    }
+
     pub fn get(&self, i: usize) -> bool {
         assert!(
             i < self.nbits,
