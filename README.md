@@ -13,6 +13,7 @@ Minimum supported compiler version is 1.35.0. Use [cargo-atcoder](https://github
 * [BIT (Binary Indexed Tree)](src/data_structure/bit.rs)
 * [Union-Find (Disjoint Set)](src/data_structure/union_find.rs)
 * [Segment Tree](src/data_structure/segment_tree.rs)
+* [Bit Array](src/data_structure/bit_array.rs)
 
 ### Math
 

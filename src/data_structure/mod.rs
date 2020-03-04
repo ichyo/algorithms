@@ -5,6 +5,7 @@
 //! * [`BITRange`](struct.BITRange.html) - Binary Index Tree (Fenwick Tree) + range add
 //! * [`UnionFind`](struct.UnionFind.html) - Disjoint-set (Union-find) data structure
 //! * [`RMQ`](type.RMQ.html) - Segment tree to support range minimum query
+//! * [`BitArray`](type.BitArray.html) - fixed length array of bits for bit-level parallelism
 //!
 mod bit;
 mod bit_array;
