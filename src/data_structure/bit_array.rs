@@ -13,6 +13,10 @@ impl BitArray {
         }
     }
 
+    pub fn len(&self) -> usize {
+        self.nbits
+    }
+
     pub fn get(&self, i: usize) -> bool {
         assert!(
             i < self.nbits,
@@ -66,20 +70,12 @@ impl BitArray {
         }
     }
 
-    pub fn blocks(&self) -> impl Iterator<Item = &u64> {
+    fn blocks(&self) -> impl Iterator<Item = &u64> {
         self.blocks.iter()
     }
 
-    pub fn blocks_mut(&mut self) -> impl Iterator<Item = &mut u64> {
+    fn blocks_mut(&mut self) -> impl Iterator<Item = &mut u64> {
         self.blocks.iter_mut()
-    }
-
-    pub fn len(&self) -> usize {
-        self.nbits
-    }
-
-    pub fn is_empty(&self) -> bool {
-        self.nbits == 0
     }
 }
 
