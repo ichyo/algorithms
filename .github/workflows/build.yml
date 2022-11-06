@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        toolchain: [stable, 1.35.0]
+        toolchain: [stable, 1.42.0]
 
     steps:
       - name: Checkout sources
