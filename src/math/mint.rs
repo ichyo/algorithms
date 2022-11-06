@@ -167,8 +167,8 @@ impl<M: Module> Mint<M> {
     pub fn inv(self) -> Mint<M> {
         let mut a = self.val as i32;
         let mut b = self.module() as i32;
-        let mut u = 1 as i32;
-        let mut v = 0 as i32;
+        let mut u = 1_i32;
+        let mut v = 0_i32;
         while b != 0 {
             let quo = a / b;
             a -= quo * b;
